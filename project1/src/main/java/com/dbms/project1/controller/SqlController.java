@@ -1,13 +1,12 @@
 /*
  * @Author: Jin X
  * @Date: 2020-02-17 14:14:28
- * @LastEditTime: 2020-02-18 14:54:45
+ * @LastEditTime: 2020-02-19 13:54:49
  */
 package com.dbms.project1.controller;
 
-import java.util.List;
-
-import com.dbms.project1.Repository.DBRepository;
+import com.dbms.project1.Repository.MysqlRepository;
+import com.dbms.project1.Repository.RedshiftRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class SqlController {
 
     @Autowired
-    DBRepository dbRepository;
+    RedshiftRepository redshiftRepository;
+    @Autowired
+    MysqlRepository mysqlRepository;
     
     @GetMapping
     public String check() {
@@ -30,12 +31,18 @@ public class SqlController {
 
     @GetMapping(path="/getaisles")
     public String getaisles() {
-        return dbRepository.getaisles();
+        return mysqlRepository.getaisles();
     }
 
     @PostMapping(path="/e")
     public String jgetdata(@RequestParam("type") String type, @RequestParam("sql") String sql) {
         System.out.println(type+"  :  "+sql);
-        return dbRepository.getdata(sql);
+        if (type.equals("mysql")) {
+            return mysqlRepository.getdata(sql);
+        }
+        if (type.equals("redshift")) {
+            return redshiftRepository.getdata(sql);
+        }
+        return "[{\"error\":NULL}]";
     }
 }
