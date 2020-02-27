@@ -1,7 +1,7 @@
 /*
  * @Author: Jin X
  * @Date: 2020-02-18 16:34:08
- * @LastEditTime: 2020-02-19 12:55:30
+ * @LastEditTime: 2020-02-26 22:38:12
  */
 
 package com.dbms.project1.Repository;
@@ -22,9 +22,10 @@ public class MysqlConfig {
     public DataSource datasource() {
         DataSourceBuilder dsbuilder = DataSourceBuilder.create();
         dsbuilder.driverClassName("com.mysql.cj.jdbc.Driver")
-                .url("jdbc:mysql://instacartdb.c8ojtshzefs1.us-east-2.rds.amazonaws.com:3306/instacart")
-                .username("admin")
-                .password("12345678");
+                // .url("jdbc:mysql://instacartdb.c8ojtshzefs1.us-east-2.rds.amazonaws.com:3306/instacart")
+                .url("jdbc:mysql://jindb.c8ojtshzefs1.us-east-2.rds.amazonaws.com:3306/instacart")
+                .username("instacart")
+                .password("instacart");
                 
 
                 
