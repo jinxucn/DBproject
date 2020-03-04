@@ -1,8 +1,9 @@
 /*
  * @Author: Jin X
  * @Date: 2020-02-17 23:58:08
- * @LastEditTime: 2020-02-23 10:20:14
+ * @LastEditTime: 2020-03-04 11:33:53
  */
+var history = []
 $(function () {
     var $tb = $('#tb');
     $("#submit").click(function () {
@@ -10,6 +11,7 @@ $(function () {
         var timeBegin = new Date();
         $.ajax({
             type: "POST",
+            timeout: 30000,
             dataType:"json",
             url: "/sql/e",
             data: $('#fm').serializeArray(),
@@ -33,6 +35,21 @@ $(function () {
                 alert("error");
             }
         });
+    });
+
+    $('#page-query').click(function () {
+        $('.nav-link').removeClass('active')
+        $('#page-query').addClass('active')
+        $('#query').show()
+        $('#schema').hide()
+        $('#history').hide()
+    });
+    $('#page-schema').click(function () {
+        $('.nav-link').removeClass('active')
+        $('#page-schema').addClass('active')
+        $('#query').hide()
+        $('#schema').show()
+        $('#history').hide()
     });
    
 
