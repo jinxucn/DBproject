@@ -8,6 +8,16 @@
 #send{
     background-color: Gainsboro;
 }
+.history-sql{
+    background-color: Gainsboro;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
 footer{
     background-color: Gainsboro;
+    bottom: 0px;
+}
+.page{
+    margin-top: 20px;
+    height: 1200px;
 }
