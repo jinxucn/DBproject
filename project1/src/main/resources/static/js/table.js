@@ -1,14 +1,14 @@
 /*
  * @Author: Jin X
  * @Date: 2020-02-17 23:58:08
- * @LastEditTime: 2020-03-04 19:47:35
+ * @LastEditTime: 2020-03-04 21:38:45
  */
 var history = {}
 $(function () {
     var $tb = $('#tb');
 
 
-    var hisid=0
+    var hisid = 0;
 
     function addHistory() {
         let form = $('#fm').serializeArray();
