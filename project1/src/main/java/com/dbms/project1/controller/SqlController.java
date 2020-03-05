@@ -1,7 +1,7 @@
 /*
  * @Author: Jin X
  * @Date: 2020-02-17 14:14:28
- * @LastEditTime: 2020-02-19 13:54:49
+ * @LastEditTime: 2020-03-04 21:49:34
  */
 package com.dbms.project1.controller;
 
@@ -37,6 +37,7 @@ public class SqlController {
     @PostMapping(path="/e")
     public String jgetdata(@RequestParam("type") String type, @RequestParam("sql") String sql) {
         System.out.println(type+"  :  "+sql);
+        sql += ";";
         if (type.equals("mysql")) {
             return mysqlRepository.getdata(sql);
         }
